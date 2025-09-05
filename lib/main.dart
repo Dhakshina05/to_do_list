@@ -2,13 +2,19 @@ import 'package:flutter/material.dart';
 import 'pages/home_page.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'pages/login_page.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   // init  the hive
   await Hive.initFlutter();
+  await Hive.openBox('mybox');
 
-  //open a box
-  var box = await Hive.openBox('mybox');
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   runApp(const MyApp());
 }
