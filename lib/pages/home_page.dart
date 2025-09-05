@@ -76,7 +76,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.purple[200],
-      appBar: AppBar(title: Text('TO DO'), elevation: 0),
+      appBar: AppBar(title: Text('TO DO'), elevation: 0,leading: SizedBox.shrink(),),
       floatingActionButton: FloatingActionButton(
         onPressed: createNewTask,
         child: Icon(Icons.add),

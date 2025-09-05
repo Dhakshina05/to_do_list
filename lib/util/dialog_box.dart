@@ -34,7 +34,22 @@ class DialogBox extends StatelessWidget {
             Row(
               children: [
                //save button
-               MyButton(text:"Save", onPressed: onSave),
+               MyButton(
+                text:"Save",
+                 onPressed: (){
+                  String task=controller.text.trim();
+                  if(task.isEmpty){
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text("Task cannot be empty"),
+                        duration: Duration(seconds:2),
+                        ),
+                    );
+                  return;
+                 }
+                 if (onSave != null)onSave!();
+  },
+                 ),
 
               const SizedBox(width:8),
 
